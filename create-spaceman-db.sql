@@ -1,7 +1,7 @@
--- User: spaceman_game_user
--- DROP USER spaceman_game_user;
+-- User: spaceman_game_test_user
+-- DROP USER spaceman_game_test_user;
 
-CREATE USER spaceman_game_user WITH
+CREATE USER spaceman_game_test_user WITH
   LOGIN
   NOSUPERUSER
   INHERIT
@@ -9,12 +9,12 @@ CREATE USER spaceman_game_user WITH
   NOCREATEROLE
   NOREPLICATION;
 
-ALTER USER spaceman_game_user with PASSWORD 'password';
+ALTER USER spaceman_game_test_user with PASSWORD 'password';
 
--- Database: spaceman_game
--- DROP DATABASE spaceman_game;
+-- Database: spaceman_game_test
+-- DROP DATABASE spaceman_game_test;
 
-CREATE DATABASE spaceman_game
+CREATE DATABASE spaceman_game_test
     WITH 
     OWNER = postgres
     ENCODING = 'UTF8'
@@ -23,8 +23,8 @@ CREATE DATABASE spaceman_game
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
 
-GRANT ALL ON DATABASE spaceman_game TO postgres;
+GRANT ALL ON DATABASE spaceman_game_test TO postgres;
 
-GRANT TEMPORARY, CONNECT ON DATABASE spaceman_game TO PUBLIC;
+GRANT TEMPORARY, CONNECT ON DATABASE spaceman_game_test TO PUBLIC;
 
-GRANT ALL ON DATABASE spaceman_game TO spaceman_game_user;
+GRANT ALL ON DATABASE spaceman_game_test TO spaceman_game_test_user;
